@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Focus test</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    #status {
+      font-size: 24px;
+      padding: 12px;
+      border-radius: 8px;
+      width: fit-content;
+    }
+    .focused {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    .blurred {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+  </style>
+</head>
+<body>
+  <div id="status" class="focused">FOCUSED</div>
+
+  <script>
+    const status = document.getElementById('status');
+
+    function setFocused(isFocused) {
+      status.textContent = isFocused ? 'FOCUSED' : 'BLURRED';
+      status.className = isFocused ? 'focused' : 'blurred';
+    }
+
+    window.addEventListener('focus', () => setFocused(true));
+    window.addEventListener('blur', () => setFocused(false));
+
+    document.addEventListener('keydown', (e) => {
+      console.log('KEY:', e.key);
+    });
+  </script>
+</body>
+</html>

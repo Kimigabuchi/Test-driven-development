@@ -8,4 +8,8 @@ export class Dollar {
 	times(multiplier: number) {
 		return new Dollar(this.amount * multiplier);
 	}
+
+	equals(other: Dollar): boolean {
+		return this.amount === other.amount;
+	}
 }
